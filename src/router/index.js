@@ -4,7 +4,7 @@
  * @Date:2022-05-12 13:56:00
  */
 import { createRouter, createWebHashHistory } from "vue-router";
-import CesiumContainer from '../views/CesiumContainer.vue';
+import CesiumContainer from '@/views/CesiumContainer.vue';
 const routes = [
   {
     path: '/',

@@ -5,16 +5,18 @@
 -->
 <template>
   <div id="cesiumContainer"></div>
+  <mapView></mapView>
 </template>
 
 <script>
 import 'cesium/Build/Cesium/Widgets/widgets.css'
-import { onMounted } from 'vue'
+import { onMounted} from 'vue'
 import { Viewer,createWorldTerrain,Ion} from 'cesium'
 import config from "@/config";
-
+import mapView from "@/component/mapView";
 export default {
   name: 'CesiumContainer',
+  components:{mapView},
   setup() {
     onMounted(() => {
       Ion.defaultAccessToken = config.cesium_ion;
