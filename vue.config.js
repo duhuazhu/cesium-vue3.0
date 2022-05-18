@@ -2,14 +2,16 @@ const webpack = require('webpack')
 const path = require('path')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const cesiumSource = 'node_modules/cesium/Build/Cesium'
-
+const mode = process.env.NODE_ENV
+const isDev = mode === 'development'
 module.exports = {
   publicPath: './',
   assetsDir: './static',
   productionSourceMap: false,
   lintOnSave: false, // 是否开启eslint
   devServer: {
-    open: true
+    hot: true,  // 打开热更新开关
+    open: true,
   },
   configureWebpack: (config) => {
     let plugins = []
@@ -87,7 +89,9 @@ module.exports = {
         }
       },
       output: {
-        sourcePrefix: ' '
+        sourcePrefix: ' ',
+        filename: isDev ? `[name].js` : `[name].[hash:8].js`,
+        chunkFilename: isDev ? `[name].js` : `[name].[hash:8].js`,
       },
       amd: {
         toUrlUndefined: true

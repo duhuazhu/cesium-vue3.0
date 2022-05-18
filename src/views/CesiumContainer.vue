@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import 'cesium/Build/Cesium/Widgets/widgets.css'
 import { onMounted} from 'vue'
+import 'cesium/Build/Cesium/Widgets/widgets.css'
 import { Viewer,createWorldTerrain,Ion} from 'cesium'
 import config from "@/config";
 import mapView from "@/component/mapView";
