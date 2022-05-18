@@ -8,13 +8,13 @@
     <div class="toolBar">
       <el-row justify="space-around" :gutter="24">
         <el-col :span="4">
-          <el-button @click="baseMap">
+          <el-button @click="baseMapTag">
             <i class="iconfont icon-earth"></i>
             底图
           </el-button>
         </el-col>
         <el-col :span="4">
-          <el-button>
+          <el-button @click="layerCollectionTag">
             <i class="iconfont icon-tuceng-"></i>
             图层
           </el-button>
@@ -37,43 +37,53 @@
       </el-row>
     </div>
   </div>
-  <baseLayer @isBaseMap="changeBaseLayer" :isBaseMap="isBaseMap" />
+  <baseLayer @isBaseMapClick="changeBaseLayer" :isBaseMapClick="isBaseMapClick" />
+  <layerCollection @isLayerCollectionClick="changeLayerCollection" :isLayerCollectionClick="isLayerCollectionClick"></layerCollection>
 </template>
 
 <script>
 import { ArrowDown } from "@element-plus/icons-vue";
 import baseLayer from "@/component/baseLayer";
+import layerCollection from "@/component/layerCollection";
 import { ref } from "vue";
 export default {
   components: {
     baseLayer,
+    layerCollection,
     ArrowDown,
   },
   setup(props, context) {
-    const isBaseMap = ref(false);
-    let baseMap = () => {
-      isBaseMap.value = !isBaseMap.value;
+    //底图切换
+    const isBaseMapClick = ref(false);
+    let baseMapTag = () => {
+      isBaseMapClick.value = !isBaseMapClick.value;
     };
     let changeBaseLayer = (value) => {
-      isBaseMap.value = value;
+       isBaseMapClick.value = value;
+    };
+    //图层
+    const isLayerCollectionClick = ref(false)
+    let layerCollectionTag = ()=>{
+      isLayerCollectionClick.value = !isLayerCollectionClick.value;
+    }
+    let changeLayerCollection = (value) => {
+      isLayerCollectionClick.value = value;
     };
     return {
-      isBaseMap,
-      baseMap,
+      isBaseMapClick,
+      baseMapTag,
       changeBaseLayer,
+      isLayerCollectionClick,
+      layerCollectionTag,
+      changeLayerCollection
     };
   },
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "~@/assets/css/mapView.scss";
-</style>
-
-<!--组件样式更改-->
-<style scoped>
-/*引入iconfont 在线字体*/
-.example-showcase .el-dropdown + .el-dropdown {
+/*.example-showcase .el-dropdown + .el-dropdown {
   margin-left: 15px;
 }
 .example-showcase .el-dropdown-link {
@@ -81,5 +91,5 @@ export default {
   color: var(--el-color-primary);
   display: flex;
   align-items: center;
-}
+}*/
 </style>

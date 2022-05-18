@@ -1,6 +1,6 @@
 <template>
-  <div class="baseLayer">
-    <el-dialog v-model="props.isBaseMap" title="底图" @close="closeDialog">
+  <div class="bubbleStyle">
+    <el-dialog v-model="props.isBaseMapClick" title="底图" @close="closeDialog">
       <div class="baseLayerModules">
         <div
           v-for="(o, index) in config.baseLayer"
@@ -8,12 +8,12 @@
           class="block"
           >
             <el-image
-                :src=o.img
+                :src=o.icon
                 class="image"
                 fit="fill"
              alt=""/>
             <div>
-              <span class="demonstration">{{o.mapName}}</span>
+              <span class="demonstration">{{o.name}}</span>
             </div>
         </div>
       </div>
@@ -23,17 +23,17 @@
 
 <script>
 import config from "@/component/baseLayer/config";
+// import {watch} from 'vue';
 export default {
   props: {
-    isBaseMap: {
+    isBaseMapClick: {
       type: Boolean,
     },
   },
   setup(props, context) {
     let closeDialog = () => {
-      context.emit("isBaseMap", !props.isBaseMap);
+      context.emit("isBaseMapClick", !props.isBaseMapClick);
     };
-    console.log(config.baseLayer);
     return {
       props,
       config,
@@ -44,5 +44,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "~@/assets/css/baseLayer.scss";
+@import "~@/component/baseLayer/baseLayer.scss";
 </style>
