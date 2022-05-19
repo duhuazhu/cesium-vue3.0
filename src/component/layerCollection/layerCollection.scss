@@ -4,11 +4,20 @@
   .el-tree{
     background: none;
   }
+  .el-tree-node:focus>.el-tree-node__content{
+    background: none;
+  }
   .el-tree-node__content:hover{
     background: none;
   }
+  .el-tree-node__content span{
+    font-size: 14px;
+  }
+  .el-tree-node__label{
+    color: #ffffff;
+  }
   .el-tree-node__label:hover{
-    background: hsla(0,0%,100%,.08)!important;
+    background: hsla(0,0%,100%,0.3)!important;
   }
   .el-tree > .el-tree-node:after {
     border-top: none;

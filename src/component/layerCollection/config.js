@@ -7,19 +7,21 @@ export default {
     layers:[
         {
             id: 1,
-            label: 'Level one 1',
+            label: '三维模型',
+            iconType:'file',
             children: [
                 {
                     id: 4,
-                    label: 'Level two 1-1',
+                    iconType:'file',
+                    label: '倾斜模型',
                     children: [
                         {
                             id: 9,
-                            label: 'Level three 1-1-1',
+                            label: '倾斜模型1',
                         },
                         {
                             id: 10,
-                            label: 'Level three 1-1-2',
+                            label: '倾斜模型2',
                         },
                     ],
                 },
@@ -27,29 +29,31 @@ export default {
         },
         {
             id: 2,
-            label: 'Level one 2',
+            iconType:'file',
+            label: '人工建模',
             children: [
                 {
                     id: 5,
-                    label: 'Level two 2-1',
+                    label: '化工厂',
                 },
                 {
                     id: 6,
-                    label: 'Level two 2-2',
+                    label: '地下管网',
                 },
             ],
         },
         {
             id: 3,
-            label: 'Level one 3',
+            iconType:'file',
+            label: '城市白膜',
             children: [
                 {
                     id: 7,
-                    label: 'Level two 3-1',
+                    label: '上海市区',
                 },
                 {
                     id: 8,
-                    label: 'Level two 3-2',
+                    label: '武汉市区',
                 },
             ],
         },

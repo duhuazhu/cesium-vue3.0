@@ -1,0 +1,65 @@
+{
+  "id": "3406887",
+  "name": "cesiumVue",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "11940457",
+      "name": "图层",
+      "font_class": "tuceng",
+      "unicode": "e77d",
+      "unicode_decimal": 59261
+    },
+    {
+      "icon_id": "8666833",
+      "name": "文件夹",
+      "font_class": "wenjianjia",
+      "unicode": "e673",
+      "unicode_decimal": 58995
+    },
+    {
+      "icon_id": "16388840",
+      "name": "文件夹",
+      "font_class": "wenjianjia1",
+      "unicode": "e67e",
+      "unicode_decimal": 59006
+    },
+    {
+      "icon_id": "18538446",
+      "name": "连接",
+      "font_class": "lianjie",
+      "unicode": "efb3",
+      "unicode_decimal": 61363
+    },
+    {
+      "icon_id": "27765157",
+      "name": "文件夹",
+      "font_class": "wenjianjia2",
+      "unicode": "e70e",
+      "unicode_decimal": 59150
+    },
+    {
+      "icon_id": "774372",
+      "name": "工具",
+      "font_class": "gongju",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "8821270",
+      "name": "图层-01",
+      "font_class": "tuceng-",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "18170930",
+      "name": "地球,地理,全球",
+      "font_class": "earth",
+      "unicode": "e9ee",
+      "unicode_decimal": 59886
+    }
+  ]
+}
