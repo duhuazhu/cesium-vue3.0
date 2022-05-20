@@ -6,3 +6,11 @@
     display: none;
   }
 }
+:root{
+  --el-bg-color-overlay:#3f4854b3;
+  --el-text-color-regular:#ffffffd9;
+}
+.el-dropdown__popper {
+  --el-dropdown-menuItem-hover-fill: hsla(0,0%,100%,0.08)!important;
+  --el-dropdown-menuItem-hover-color: #ffffff;
+}

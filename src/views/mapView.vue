@@ -7,32 +7,21 @@
     <!-- 分三个模块 底图  图层 工具-->
     <div class="toolBar">
       <el-row justify="space-around" :gutter="24">
-        <el-col :span="4">
+        <el-col :span="3">
           <el-button @click="baseMapTag">
-            <i class="iconfont icon-earth"></i>
-            底图
+            <svgIcon name="icon-earth"></svgIcon>
+            <span>底图</span>
           </el-button>
         </el-col>
-        <el-col :span="4">
+        <el-col :span="3">
           <el-button @click="layerCollectionTag">
-            <i class="iconfont icon-tuceng-"></i>
+            <svgIcon name="icon-tuceng-"></svgIcon>
             图层
           </el-button>
         </el-col>
-        <el-col :span="6">
+        <el-col :span="10">
           <!--工具-->
-          <el-dropdown :hide-on-click="false">
-            <el-button
-              >工具<el-icon class="el-icon--right"><arrow-down /></el-icon
-            ></el-button>
-            <template #dropdown>
-              <el-dropdown-menu>
-                <el-dropdown-item>工具1</el-dropdown-item>
-                <el-dropdown-item>工具2</el-dropdown-item>
-                <el-dropdown-item>工具3</el-dropdown-item>
-              </el-dropdown-menu>
-            </template>
-          </el-dropdown>
+          <toolBar></toolBar>
         </el-col>
       </el-row>
     </div>
@@ -42,15 +31,17 @@
 </template>
 
 <script>
-import { ArrowDown } from "@element-plus/icons-vue";
 import baseLayer from "@/component/baseLayer";
 import layerCollection from "@/component/layerCollection";
+import toolBar from "@/component/toolBar";
+import svgIcon from "@/unit/svgIcon";
 import { ref } from "vue";
 export default {
   components: {
     baseLayer,
     layerCollection,
-    ArrowDown,
+    svgIcon,
+    toolBar
   },
   setup(props, context) {
     //底图切换
@@ -83,13 +74,4 @@ export default {
 
 <style lang="scss" scoped>
 @import "~@/assets/css/mapView.scss";
-/*.example-showcase .el-dropdown + .el-dropdown {
-  margin-left: 15px;
-}
-.example-showcase .el-dropdown-link {
-  cursor: pointer;
-  color: var(--el-color-primary);
-  display: flex;
-  align-items: center;
-}*/
 </style>

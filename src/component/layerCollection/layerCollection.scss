@@ -12,12 +12,13 @@
   }
   .el-tree-node__content span{
     font-size: 14px;
+    color:#ffffff;
   }
   .el-tree-node__label{
     color: #ffffff;
   }
-  .el-tree-node__label:hover{
-    background: hsla(0,0%,100%,0.3)!important;
+  .el-tree-node__content span:hover{
+    background: hsla(0,0%,100%,0.08)!important;
   }
   .el-tree > .el-tree-node:after {
     border-top: none;

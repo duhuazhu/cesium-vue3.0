@@ -1,0 +1,57 @@
+/**
+ * Description:
+ * Author: duhuazhu
+ * Date: 2022/5/20
+ */
+export default {
+    toolCollection:[
+        {
+            toolName:'图上测量',
+            children:[]
+        },
+        {
+            toolName:'空间分析',
+            children:[]
+        },
+        {
+            toolName:'坐标定位',
+            children:[]
+        },
+        {
+            toolName:'地区导航',
+            children:[]
+        },
+        {
+            toolName:'我的标记',
+            children:[]
+        },
+        {
+            toolName:'视角书签',
+            children:[]
+        },
+        {
+            toolName:'地图打印',
+            children:[]
+        },
+        {
+            toolName:'飞行漫游',
+            children:[]
+        },
+        {
+            toolName:'图上标绘',
+            children:[]
+        },
+        {
+            toolName:'路线导航',
+            children:[]
+        },
+        {
+            toolName:'卷帘对比',
+            children:[]
+        },
+        {
+            toolName:'分屏对比',
+            children:[]
+        }
+    ]
+}

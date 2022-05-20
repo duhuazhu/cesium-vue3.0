@@ -1,4 +1,3 @@
-@import "https://at.alicdn.com/t/font_3406887_m5h8ijs0bi.css";
 .mapView {
   .wrap {
     position: absolute;
@@ -8,6 +7,7 @@
     width: 1200px;
     height: 74px;
     background: url(~@/assets/images/head/top.png);
+
     img {
       position: absolute;
       top: 50%;
@@ -15,9 +15,16 @@
       transform: translate(-50%, -50%);
     }
   }
+
   .toolBar {
     position: absolute;
     top: 0;
     right: 0;
+
+    :deep(.el-button) {
+      border: none;
+      background-color: #2b2c2fcc;
+      color: #ffffff;
+    }
   }
 }

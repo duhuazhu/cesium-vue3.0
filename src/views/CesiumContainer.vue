@@ -13,7 +13,7 @@ import { onMounted} from 'vue'
 import 'cesium/Build/Cesium/Widgets/widgets.css'
 import { Viewer,createWorldTerrain,Ion} from 'cesium'
 import config from "@/config";
-import mapView from "@/component/mapView";
+import mapView from "@/views/mapView";
 export default {
   name: 'CesiumContainer',
   components:{mapView},
@@ -40,9 +40,3 @@ export default {
   }
 }
 </script>
-
-
-<style lang="scss">
-@import "~@/assets/css/main.scss";
-
-</style>

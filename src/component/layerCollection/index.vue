@@ -17,7 +17,7 @@
 
 <script>
 import config from "@/component/layerCollection/config";
-import svgIcon from "@/component/svgIcon";
+import svgIcon from "@/unit/svgIcon";
 export default {
   props: {
     isLayerCollectionClick: {
