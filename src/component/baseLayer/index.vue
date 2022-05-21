@@ -11,7 +11,8 @@
                 :src=o.icon
                 class="image"
                 fit="fill"
-             alt=""/>
+                @click="addBaseLayer(o.id)"
+                alt=""/>
             <div>
               <span class="demonstration">{{o.name}}</span>
             </div>
@@ -23,7 +24,8 @@
 
 <script>
 import config from "@/component/baseLayer/config";
-// import {watch} from 'vue';
+import baseLayerFun from "@/component/baseLayer/baseLayerFun";
+import {getCurrentInstance} from "vue";
 export default {
   props: {
     isBaseMapClick: {
@@ -34,10 +36,19 @@ export default {
     let closeDialog = () => {
       context.emit("isBaseMapClick", !props.isBaseMapClick);
     };
+    let addBaseLayer = (id)=>{
+      const { ctx  } = getCurrentInstance();
+      ctx.$EventBus.on('Viewer',data=>{
+        console.log(data,'123');
+      })
+      baseLayerFun.add(id)
+    }
     return {
       props,
       config,
       closeDialog,
+      addBaseLayer,
+      baseLayerFun
     };
   },
 };

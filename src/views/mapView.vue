@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import baseLayer from "@/component/baseLayer";
+import baseLayer from "@/component/baseLayer/index";
 import layerCollection from "@/component/layerCollection";
 import toolBar from "@/component/toolBar";
 import svgIcon from "@/unit/svgIcon";
