@@ -23,9 +23,11 @@
 </template>
 
 <script>
+import {inject, onMounted,getCurrentInstance} from "vue";
 import config from "@/component/baseLayer/config";
 import baseLayerFun from "@/component/baseLayer/baseLayerFun";
-import {getCurrentInstance} from "vue";
+let Viewer;
+
 export default {
   props: {
     isBaseMapClick: {
@@ -33,15 +35,14 @@ export default {
     },
   },
   setup(props, context) {
+    const { appContext } = getCurrentInstance();
     let closeDialog = () => {
       context.emit("isBaseMapClick", !props.isBaseMapClick);
     };
+
     let addBaseLayer = (id)=>{
-      const { ctx  } = getCurrentInstance();
-      ctx.$EventBus.on('Viewer',data=>{
-        console.log(data,'123');
-      })
-      baseLayerFun.add(id)
+      const Viewer = appContext.config.globalProperties.Viewer;
+      baseLayerFun.add(id,Viewer);
     }
     return {
       props,

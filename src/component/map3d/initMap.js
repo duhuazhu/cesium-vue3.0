@@ -14,7 +14,7 @@ class CesiumViewer{
         return new Promise(((resolve, reject) => {
             Ion.defaultAccessToken = config.cesium_ion;
             /* eslint no-new: */
-           let ViewerGlobe =  new Viewer($el,{
+           let ViewerGlobe =  new Viewer('cesiumContainer',{
                 geocoder: false, // 地理位置查询定位控件
                 homeButton: false, // 默认相机位置控件
                 timeline: false, // 时间滚动条控件

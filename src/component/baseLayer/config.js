@@ -24,45 +24,76 @@ export default {
                     "type": "group"
                 },*/
             {
-                "id": 2021,
-                "pid": 10,
+                "id": 1,
                 "name": "天地图影像",
                 "icon": tdt_img,
-                "type": "group",
+                "type": "WebMapTileServiceImageryProvider",
+                "token":"13c73c2f430e97a4e5b1f768bef733a0",
+                "url": "http://t0.tianditu.com/",
                 "layers": [
                     {
                         "name": "底图",
                         "type": "tdt",
-                        "layer": "img_d"
+                        "layer": "img_w",
+                        "request":"wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=img&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default&format=tiles&tk=",
+                        "option":{
+                            "layer": "tdtImgLayer",
+                            "style": "default",
+                            "format": "image/jpeg",
+                            "tileMatrixSetID": "GoogleMapsCompatible",
+                        }
                     },
                     {
                         "name": "注记",
                         "type": "tdt",
-                        "layer": "img_z"
+                        "layer": "cia_w",
+                        "request":"wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=cia&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default&format=tiles&tk=",
+                        "option":{
+                            "layer": "tdtCiaLayer",
+                            "style": "default",
+                            "format": "image/jpeg",
+                            "tileMatrixSetID": "GoogleMapsCompatible"
+                        }
                     }
                 ],
                 "show": true
             },
             {
-                "pid": 10,
+                "id": 2,
                 "name": "天地图电子",
+                "type": "WebMapTileServiceImageryProvider",
+                "token":"13c73c2f430e97a4e5b1f768bef733a0",
+                "url": "http://t0.tianditu.com/",
                 "icon": tdt_vec,
-                "type": "group",
                 "layers": [
                     {
                         "name": "底图",
                         "type": "tdt",
-                        "layer": "vec_d"
+                        "layer": "vec_w",
+                        "request":"wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=vec&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default&format=tiles&tk=",
+                        "option":{
+                            "layer": "tdtVecLayer",
+                            "style": "default",
+                            "format": "image/jpeg",
+                            "tileMatrixSetID": "GoogleMapsCompatible",
+                        }
                     },
                     {
                         "name": "注记",
                         "type": "tdt",
-                        "layer": "vec_z"
+                        "layer": "cva_w",
+                        "request":"wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=cva&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default&format=tiles&tk=",
+                        "option":{
+                            "layer": "tdtCvaLayer",
+                            "style": "default",
+                            "format": "image/jpeg",
+                            "tileMatrixSetID": "GoogleMapsCompatible",
+                        }
                     }
                 ]
             },
             {
-                "pid": 10,
+                "id": 3,
                 "name": "高德影像",
                 "type": "group",
                 "icon": gaode_img,
@@ -80,14 +111,14 @@ export default {
                 ]
             },
             {
-                "pid": 10,
+                "id": 4,
                 "name": "高德电子",
                 "type": "gaode",
                 "icon": gaode_vec,
                 "layer": "vec"
             },
             {
-                "pid": 10,
+                "id": 10,
                 "name": "百度影像",
                 "type": "group",
                 "icon": bd_img,
@@ -105,14 +136,14 @@ export default {
                 ]
             },
             {
-                "pid": 10,
+                "id": 5,
                 "name": "百度电子",
                 "icon": bd_vec,
                 "type": "baidu",
                 "layer": "vec"
             },
             {
-                "pid": 10,
+                "id": 6,
                 "name": "腾讯影像",
                 "icon": gaode_img,
                 "type": "group",
@@ -130,14 +161,14 @@ export default {
                 ]
             },
             {
-                "pid": 10,
+                "id": 7,
                 "name": "腾讯电子",
                 "icon": gaode_vec,
                 "type": "tencent",
                 "layer": "vec"
             },
             {
-                "pid": 10,
+                "id": 8,
                 "name": "ArcGIS影像",
                 "icon": esriWorldImagery,
                 "type": "xyz",
@@ -145,14 +176,14 @@ export default {
                 "enablePickFeatures": false
             },
             {
-                "pid": 10,
+                "id": 9,
                 "name": "微软影像",
                 "icon": bingAerial,
                 "type": "bing",
                 "layer": "Aerial"
             },
             {
-                "pid": 10,
+                "id": 10,
                 "name": "OSM地图",
                 "type": "xyz",
                 "icon": osm,
@@ -160,8 +191,7 @@ export default {
                 "subdomains": "abc"
             },
             {
-                "id": 2017,
-                "pid": 10,
+                "id": 11,
                 "name": "暗色底图",
                 "type": "gaode",
                 "icon": blackMarble,
@@ -175,7 +205,7 @@ export default {
                 "saturation": 0
             },
             {
-                "pid": 10,
+                "id": 12,
                 "name": "蓝色底图",
                 "icon": bd_c_midnight,
                 "type": "xyz",
@@ -184,7 +214,7 @@ export default {
                 "enablePickFeatures": false
             },
             {
-                "pid": 10,
+                "id": 13,
                 "name": "黑色底图",
                 "icon": bd_c_drak,
                 "type": "tencent",
