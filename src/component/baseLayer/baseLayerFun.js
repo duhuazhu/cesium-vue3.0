@@ -5,15 +5,23 @@
  */
 
 import config from "@/component/baseLayer/config";
-import {WebMapTileServiceImageryProvider } from "cesium";
+import {WebMapTileServiceImageryProvider ,UrlTemplateImageryProvider} from "cesium";
 const baseLayerFun = {
+    /**
+     *
+     * @param id传入图层id
+     * @param Viewer 传入Viewer
+     */
   add(id, Viewer) {
+      //移除所有图层
       this.remove(Viewer);
+      //通过id返回查询layer
       let qid = this.inquireMapId(id);
       // 判断layer 是否还要子集
       if(qid.layers && qid.layers.length > 1){
         qid.layers.forEach((item,index)=>{
             switch (qid.type){
+                //天地图
                 case 'WebMapTileServiceImageryProvider':
                     let url  = qid.url+item.layer+'/'+item.request+qid.token;
                     let imageryProvider  =  new WebMapTileServiceImageryProvider({
@@ -21,6 +29,13 @@ const baseLayerFun = {
                         ...item.option
                     });
                     Viewer.imageryLayers.addImageryProvider(imageryProvider);
+                    break;
+                case "UrlTemplateImageryProvider":
+                    // 添加高德图
+                   let atLayer = new UrlTemplateImageryProvider({
+                       ...item.option
+                   })
+                    Viewer.imageryLayers.addImageryProvider(atLayer);
                     break;
             }
         })

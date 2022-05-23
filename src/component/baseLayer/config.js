@@ -95,27 +95,66 @@ export default {
             {
                 "id": 3,
                 "name": "高德影像",
-                "type": "group",
+                "type": "UrlTemplateImageryProvider",
                 "icon": gaode_img,
                 "layers": [
                     {
                         "name": "底图",
                         "type": "gaode",
-                        "layer": "img_d"
+                        "layer": "img_d",
+                        "option":{
+                            "url": "https://webst02.is.autonavi.com/appmaptile?style=6&x={x}&y={y}&z={z}",
+                            "layer": "tdtVecBasicLayer",
+                            "style": "default",
+                            "format": "image/png",
+                            "tileMatrixSetID": "GoogleMapsCompatible",
+                        }
                     },
                     {
                         "name": "注记",
                         "type": "gaode",
-                        "layer": "img_z"
+                        "layer": "img_z",
+                        "option":{
+                            "url": "http://webst02.is.autonavi.com/appmaptile?x={x}&y={y}&z={z}&lang=zh_cn&size=1&scale=1&style=8",
+                            "layer": "tdtAnnoLayer",
+                            "style": "default",
+                            "format": "image/jpeg",
+                            "tileMatrixSetID": "GoogleMapsCompatible",
+                        }
                     }
                 ]
             },
             {
                 "id": 4,
                 "name": "高德电子",
-                "type": "gaode",
+                "type": "UrlTemplateImageryProvider",
                 "icon": gaode_vec,
-                "layer": "vec"
+                "layers": [
+                    {
+                        "name": "底图",
+                        "type": "gaode",
+                        "layer": "img_d",
+                        "option":{
+                            "url": "http://webrd02.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}",
+                            "layer": "tdtVecBasicLayer",
+                            "style": "default",
+                            "format": "image/png",
+                            "tileMatrixSetID": "GoogleMapsCompatible",
+                        }
+                    },
+                    {
+                        "name": "注记",
+                        "type": "gaode",
+                        "layer": "img_z",
+                        "option":{
+                            "url": "http://webst02.is.autonavi.com/appmaptile?x={x}&y={y}&z={z}&lang=zh_cn&size=1&scale=1&style=8",
+                            "layer": "tdtAnnoLayer",
+                            "style": "default",
+                            "format": "image/jpeg",
+                            "tileMatrixSetID": "GoogleMapsCompatible",
+                        }
+                    }
+                ]
             },
             {
                 "id": 10,
