@@ -157,32 +157,39 @@ export default {
                 ]
             },
             {
-                "id": 10,
+                "id": 5,
                 "name": "百度影像",
-                "type": "group",
+                "type": "BaiduImageryProvider",
                 "icon": bd_img,
                 "layers": [
                     {
                         "name": "底图",
                         "type": "baidu",
-                        "layer": "img_d"
-                    },
-                    {
-                        "name": "注记",
-                        "type": "baidu",
-                        "layer": "img_z"
+                        "layer": "img_d",
+                        "option":{
+                            url: "https://maponline{s}.bdimg.com/starpic/?u=x%3D{x}%3By%3D{y}%3Bz%3D{z}%3Bv%3D009%3Btype%3Dsate&qt=satepc&app=webearth2&udt=20220519&fm=46&v=009"
+                        }
                     }
                 ]
             },
             {
-                "id": 5,
+                "id": 6,
                 "name": "百度电子",
+                "type": "BaiduImageryProvider",
                 "icon": bd_vec,
-                "type": "baidu",
-                "layer": "vec"
+                "layers": [
+                    {
+                        "name": "底图",
+                        "type": "baidu",
+                        "layer": "img_d",
+                        "option":{
+                            url: "https://ss1.bdstatic.com/8bo_dTSlR1gBo1vgoIiO_jowehsv/tile/?qt=vtile&x={x}&y={y}&z={z}&styles=pl&udt=20220519&scaler=1&showtext=1"
+                        }
+                    }
+                ]
             },
             {
-                "id": 6,
+                "id": 7,
                 "name": "腾讯影像",
                 "icon": gaode_img,
                 "type": "group",
@@ -200,14 +207,14 @@ export default {
                 ]
             },
             {
-                "id": 7,
+                "id": 8,
                 "name": "腾讯电子",
                 "icon": gaode_vec,
                 "type": "tencent",
                 "layer": "vec"
             },
             {
-                "id": 8,
+                "id": 9,
                 "name": "ArcGIS影像",
                 "icon": esriWorldImagery,
                 "type": "xyz",
@@ -215,14 +222,14 @@ export default {
                 "enablePickFeatures": false
             },
             {
-                "id": 9,
+                "id": 10,
                 "name": "微软影像",
                 "icon": bingAerial,
                 "type": "bing",
                 "layer": "Aerial"
             },
             {
-                "id": 10,
+                "id": 11,
                 "name": "OSM地图",
                 "type": "xyz",
                 "icon": osm,
@@ -230,7 +237,7 @@ export default {
                 "subdomains": "abc"
             },
             {
-                "id": 11,
+                "id": 12,
                 "name": "暗色底图",
                 "type": "gaode",
                 "icon": blackMarble,
@@ -244,7 +251,7 @@ export default {
                 "saturation": 0
             },
             {
-                "id": 12,
+                "id": 13,
                 "name": "蓝色底图",
                 "icon": bd_c_midnight,
                 "type": "xyz",
@@ -253,12 +260,21 @@ export default {
                 "enablePickFeatures": false
             },
             {
-                "id": 13,
+                "id": 14,
                 "name": "黑色底图",
                 "icon": bd_c_drak,
-                "type": "tencent",
                 "layer": "custom",
-                "style": "4"
+                "type": "BaiduImageryProvider",
+                "layers": [
+                    {
+                        "name": "暗色百度底图",
+                        "type": "baidu",
+                        "layer": "img_d",
+                        "option":{
+                            url: "http://api{s}.map.bdimg.com/customimage/tile?&x={x}&y={y}&z={z}&scale=1&customid=dark"
+                        }
+                    }
+                ]
             },
         ]
 }

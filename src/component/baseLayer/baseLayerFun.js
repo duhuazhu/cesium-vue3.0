@@ -6,6 +6,7 @@
 
 import config from "@/component/baseLayer/config";
 import {WebMapTileServiceImageryProvider ,UrlTemplateImageryProvider} from "cesium";
+import BaiduImageryProvider from "@/component/baseLayer/BaiduImageryProvider";
 const baseLayerFun = {
     /**
      *
@@ -17,14 +18,15 @@ const baseLayerFun = {
       this.remove(Viewer);
       //通过id返回查询layer
       let qid = this.inquireMapId(id);
+      let imageryProvider;
       // 判断layer 是否还要子集
-      if(qid.layers && qid.layers.length > 1){
+      if(qid.layers && qid.layers.length >= 1){
         qid.layers.forEach((item,index)=>{
             switch (qid.type){
                 //天地图
                 case 'WebMapTileServiceImageryProvider':
                     let url  = qid.url+item.layer+'/'+item.request+qid.token;
-                    let imageryProvider  =  new WebMapTileServiceImageryProvider({
+                     imageryProvider  =  new WebMapTileServiceImageryProvider({
                         url,
                         ...item.option
                     });
@@ -32,15 +34,23 @@ const baseLayerFun = {
                     break;
                 case "UrlTemplateImageryProvider":
                     // 添加高德图
-                   let atLayer = new UrlTemplateImageryProvider({
+                    imageryProvider = new UrlTemplateImageryProvider({
                        ...item.option
                    })
-                    Viewer.imageryLayers.addImageryProvider(atLayer);
+                    Viewer.imageryLayers.addImageryProvider(imageryProvider);
+                    break;
+                case "BaiduImageryProvider":
+                    imageryProvider=  new BaiduImageryProvider({
+                        ...item.option
+                        })
+                    Viewer.imageryLayers.addImageryProvider(imageryProvider);
                     break;
             }
         })
       }else{
+            switch (qid.type){
 
+            }
       }
       console.log(qid);
       console.log(id, Viewer, "add");

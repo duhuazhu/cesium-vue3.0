@@ -30,8 +30,8 @@ let Viewer;
 
 export default {
   props: {
+    type: Boolean,
     isBaseMapClick: {
-      type: Boolean,
     },
   },
   setup(props, context) {
