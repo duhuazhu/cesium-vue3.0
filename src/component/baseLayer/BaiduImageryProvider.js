@@ -131,7 +131,7 @@ BaiduImageryProvider.prototype.requestImage = function (x, y, level, request) {
         .replace("{y}", yTileCount / 2 - y - 1)
         .replace("{z}", level)
         .replace("{s}", Math.floor(10 * Math.random()));
-    console.log("zxy:" + level + ", " + x + ", " + y + "; " + url);
+    // console.log("zxy:" + level + ", " + x + ", " + y + "; " + url);
     return ImageryProvider.loadImage(this, url);
 };
 export default BaiduImageryProvider
