@@ -46,13 +46,18 @@ export default {
   setup(props, context) {
     //底图切换
     const isBaseMapClick = ref(false);
+    /**
+     * 底图点击事件
+     */
     let baseMapTag = () => {
       isBaseMapClick.value = !isBaseMapClick.value;
     };
     let changeBaseLayer = (value) => {
        isBaseMapClick.value = value;
     };
-    //图层
+    /**
+     * 图层显示隐藏事件监听
+     */
     const isLayerCollectionClick = ref(false)
     let layerCollectionTag = ()=>{
       isLayerCollectionClick.value = !isLayerCollectionClick.value;

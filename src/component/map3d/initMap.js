@@ -5,16 +5,23 @@
  */
 import 'cesium/Build/Cesium/Widgets/widgets.css'
 import { Viewer,createWorldTerrain,Ion} from 'cesium'
-import config from "@/config";
+import {cesium_ion} from "@/config";
+import baseLayerFun from "@/component/baseLayer/baseLayerFun";
+
 class CesiumViewer{
     constructor(){
         this.view = null; // 地图
     }
+    /**
+     *
+     * @param $el 传入 id名称
+     * @returns {Promise<resolve>}  返回Viewer
+     */
     init($el){
         return new Promise(((resolve, reject) => {
-            Ion.defaultAccessToken = config.cesium_ion;
+            Ion.defaultAccessToken = cesium_ion;
             /* eslint no-new: */
-           let ViewerGlobe =  new Viewer('cesiumContainer',{
+           let ViewerGlobe =  new Viewer($el,{
                 geocoder: false, // 地理位置查询定位控件
                 homeButton: false, // 默认相机位置控件
                 timeline: false, // 时间滚动条控件
@@ -28,7 +35,9 @@ class CesiumViewer{
                 selectionIndicator: false, // 是否显示选取指示器组件(聚焦框)
                 terrainProvider: new createWorldTerrain(),
                 showRenderLoopErrors: true, // 如果设为true，将在一个HTML面板中显示错误信息
+                imageryProvider:false
             })
+            baseLayerFun.add(undefined,ViewerGlobe);
             this.view = ViewerGlobe;
             resolve(ViewerGlobe)
         }))

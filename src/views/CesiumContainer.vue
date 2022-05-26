@@ -4,8 +4,10 @@
  * @Date:2022-05-12 15:08:22
 -->
 <template>
+<!--  cesium-->
   <map3d>
   </map3d>
+<!--  页面上组件-->
   <mapView>
   </mapView>
 </template>

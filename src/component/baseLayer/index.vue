@@ -3,18 +3,20 @@
     <el-dialog v-model="props.isBaseMapClick" title="底图" @close="closeDialog">
       <div class="baseLayerModules">
         <div
-          v-for="(o, index) in config.baseLayer"
+          v-for="(o, index) in baseLayer"
           :key="o"
           class="block"
           >
             <el-image
                 :src=o.icon
+                @click="addBaseLayer(o.id,index)"
                 class="image"
                 fit="fill"
-                @click="addBaseLayer(o.id)"
                 alt=""/>
             <div>
-              <span class="demonstration">{{o.name}}</span>
+              <span class="texts"
+                    :class="{'activeCss':activeVar===index}"
+              >{{o.name}}</span>
             </div>
         </div>
       </div>
@@ -23,8 +25,8 @@
 </template>
 
 <script>
-import {inject, onMounted,getCurrentInstance} from "vue";
-import config from "@/component/baseLayer/config";
+import {inject, onMounted, getCurrentInstance, ref} from "vue";
+import {baseLayer} from "@/component/baseLayer/config";
 import baseLayerFun from "@/component/baseLayer/baseLayerFun";
 let Viewer;
 
@@ -36,20 +38,30 @@ export default {
   },
   setup(props, context) {
     const { appContext } = getCurrentInstance();
+    let activeVar  = ref(0);
+    /**
+     * 遮罩层事件触发
+     */
     let closeDialog = () => {
       context.emit("isBaseMapClick", !props.isBaseMapClick);
     };
-
-    let addBaseLayer = (id)=>{
+    /**
+     *
+     * @param id 传入图层id
+     * @param index  传入当前点击index
+     */
+    let addBaseLayer = (id,index)=>{
       const Viewer = appContext.config.globalProperties.Viewer;
+      activeVar.value = index;
       baseLayerFun.add(id,Viewer);
     }
     return {
       props,
-      config,
+      baseLayer,
       closeDialog,
       addBaseLayer,
-      baseLayerFun
+      baseLayerFun,
+      activeVar
     };
   },
 };
