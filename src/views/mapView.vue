@@ -32,7 +32,7 @@
 
 <script>
 import baseLayer from "@/component/baseLayer/index";
-import layerCollection from "@/component/layerCollection";
+import layerCollection from "@/component/modeCollection";
 import toolBar from "@/component/toolBar";
 import svgIcon from "@/unit/svgIcon";
 import { ref } from "vue";

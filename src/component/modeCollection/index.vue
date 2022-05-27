@@ -10,14 +10,19 @@
           :default-expand-all="true"
           :expand-on-click-node="false"
           :render-content="renderContent"
+          @check-change="checkChange"
       />
     </el-dialog>
   </div>
 </template>
 
 <script>
-import config from "@/component/layerCollection/config";
+import config from "@/component/modeCollection/config";
 import svgIcon from "@/unit/svgIcon";
+import {getCurrentInstance,onMounted} from "vue";
+import {add} from "@/component/modeCollection/modeCollectionFun";
+
+let Viewer;
 export default {
   props: {
     isLayerCollectionClick: {
@@ -28,6 +33,11 @@ export default {
     svgIcon
   },
   setup(props,context){
+    //初始化注册全局viewer对象
+    onMounted(()=>{
+      const { appContext } = getCurrentInstance();
+      Viewer = appContext.config.globalProperties.Viewer;
+    })
     let closeDialog = () => {
       context.emit("isLayerCollectionClick", !props.isLayerCollectionClick);
     };
@@ -35,6 +45,7 @@ export default {
       children: 'children',
       label: 'label',
     }
+    // 添加svg图标
     function renderContent(h, { node, data, store }) {
       let addElement = arguments[0];
       if(data.iconType ==='file'){
@@ -51,18 +62,23 @@ export default {
         ]);
       }
     }
+    function checkChange(a,b) {
+      add();
+      console.log(a, b);
+    }
     return{
       props,
       config,
       closeDialog,
       defaultProps,
-      renderContent
+      renderContent,
+      checkChange,
     }
   }
 }
 </script>
 
 <style scoped lang="scss">
-@import "~@/component/layerCollection/layerCollection.scss";
+@import "~@/component/modeCollection/modeCollection.scss";
 
 </style>

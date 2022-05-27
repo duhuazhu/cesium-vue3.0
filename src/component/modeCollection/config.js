@@ -11,17 +11,19 @@ export default {
             iconType:'file',
             children: [
                 {
-                    id: 4,
+                    id: 1-1,
                     iconType:'file',
                     label: '倾斜模型',
                     children: [
                         {
-                            id: 9,
-                            label: '倾斜模型1',
+                            id: 1-1-1,
+                            label: '大雁塔',
+                            url:'https://lab.earthsdk.com/model/66327820ce5f11eab7a4adf1d6568ff7/tileset.json',
                         },
                         {
-                            id: 10,
-                            label: '倾斜模型2',
+                            id: 1-1-2,
+                            label: '香港',
+                            url:'http://lab.earthsdk.com/model/dca113104f4a11ebbf47fd6edec1a320/tileset.json',
                         },
                     ],
                 },
@@ -33,13 +35,14 @@ export default {
             label: '人工建模',
             children: [
                 {
-                    id: 5,
-                    label: '化工厂',
+                    id: 2-1,
+                    label: '小工厂',
+                    url:'https://lab.earthsdk.com/model/887b3db0cd4f11eab7a4adf1d6568ff7/tileset.json'
                 },
-                {
-                    id: 6,
+             /*   {
+                    id: 2-2,
                     label: '地下管网',
-                },
+                },*/
             ],
         },
         {
@@ -48,13 +51,14 @@ export default {
             label: '城市白膜',
             children: [
                 {
-                    id: 7,
+                    id: 3-1,
                     label: '上海市区',
+                    url:'https://lab.earthsdk.com/model/17a32610d08411eab7a4adf1d6568ff7/tileset.json'
                 },
-                {
-                    id: 8,
+          /*      {
+                    id: 3-2,
                     label: '武汉市区',
-                },
+                },*/
             ],
         },
     ]

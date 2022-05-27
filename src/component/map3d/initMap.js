@@ -1,12 +1,12 @@
 /**
- * Description:
+ * Description: cesium 初始化加载
  * Author: duhuazhu
  * Date: 2022/5/21
  */
 import 'cesium/Build/Cesium/Widgets/widgets.css'
 import { Viewer,createWorldTerrain,Ion} from 'cesium'
 import {cesium_ion} from "@/config";
-import baseLayerFun from "@/component/baseLayer/baseLayerFun";
+import {add} from "@/component/baseLayer/baseLayerFun";
 
 class CesiumViewer{
     constructor(){
@@ -37,7 +37,7 @@ class CesiumViewer{
                 showRenderLoopErrors: true, // 如果设为true，将在一个HTML面板中显示错误信息
                 imageryProvider:false
             })
-            baseLayerFun.add(undefined,ViewerGlobe);
+            add(undefined,ViewerGlobe);
             this.view = ViewerGlobe;
             resolve(ViewerGlobe)
         }))

@@ -25,9 +25,9 @@
 </template>
 
 <script>
-import {inject, onMounted, getCurrentInstance, ref} from "vue";
+import {onMounted, getCurrentInstance, ref} from "vue";
 import {baseLayer} from "@/component/baseLayer/config";
-import baseLayerFun from "@/component/baseLayer/baseLayerFun";
+import {add} from "@/component/baseLayer/baseLayerFun";
 let Viewer;
 
 export default {
@@ -37,6 +37,11 @@ export default {
     },
   },
   setup(props, context) {
+    //初始化注册全局viewer对象
+    onMounted(()=>{
+      const { appContext } = getCurrentInstance();
+      Viewer = appContext.config.globalProperties.Viewer;
+    })
     const { appContext } = getCurrentInstance();
     let activeVar  = ref(0);
     /**
@@ -51,16 +56,15 @@ export default {
      * @param index  传入当前点击index
      */
     let addBaseLayer = (id,index)=>{
-      const Viewer = appContext.config.globalProperties.Viewer;
       activeVar.value = index;
-      baseLayerFun.add(id,Viewer);
+      add(id,Viewer);
     }
     return {
       props,
       baseLayer,
       closeDialog,
       addBaseLayer,
-      baseLayerFun,
+      add,
       activeVar
     };
   },
