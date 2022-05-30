@@ -18,7 +18,7 @@
 <script>
 import { ArrowDown } from "@element-plus/icons-vue";
 import svgIcon from "@/unit/svgIcon";
-import config from "@/component/toolBar/config";
+import config from "@/component/toolCollection/config";
 export default {
   name: "toolBar",
   components:{

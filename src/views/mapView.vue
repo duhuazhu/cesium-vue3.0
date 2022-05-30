@@ -4,74 +4,82 @@
     <!--    <div class="wrap">
       <img src="@/assets/images/head/logo.png" alt="" />
     </div>-->
-    <!-- 分三个模块 底图  图层 工具-->
+    <!-- 分四个模块 底图 地形 图层 工具-->
     <div class="toolBar">
-      <el-row justify="space-around" :gutter="24">
+      <el-row justify="space-evenly" :gutter="15">
         <el-col :span="3">
-          <el-button @click="baseMapTag">
+          <el-button @click="layerCollectionTag">
             <svgIcon name="icon-earth"></svgIcon>
             <span>底图</span>
           </el-button>
         </el-col>
         <el-col :span="3">
-          <el-button @click="layerCollectionTag">
+          <el-button @click="terrainProviderCollectionTag">
+            <svgIcon name="icon-tindixing"></svgIcon>
+            <span>地形</span>
+          </el-button>
+        </el-col>
+        <el-col :span="3">
+          <el-button @click="modeCollectionTag">
             <svgIcon name="icon-tuceng-"></svgIcon>
             图层
           </el-button>
         </el-col>
-        <el-col :span="10">
+        <el-col :span="6">
           <!--工具-->
           <toolBar></toolBar>
         </el-col>
       </el-row>
     </div>
   </div>
-  <baseLayer @isBaseMapClick="changeBaseLayer" :isBaseMapClick="isBaseMapClick" />
-  <layerCollection @isLayerCollectionClick="changeLayerCollection" :isLayerCollectionClick="isLayerCollectionClick"></layerCollection>
+  <!--底图 -->
+  <layerCollection @ifLayerCollectionClick="changeLayerCollection" :ifLayerCollectionClick="ifLayerCollectionClick" />
+  <!-- 倾斜-->
+  <modeCollection @ifModeCollectionClick="changeModeCollection" :ifModeCollectionClick="ifModeCollectionClick"/>
 </template>
 
 <script>
-import baseLayer from "@/component/baseLayer/index";
-import layerCollection from "@/component/modeCollection";
-import toolBar from "@/component/toolBar";
+import layerCollection from "@/component/layerCollection";
+import modeCollection from "@/component/modeCollection";
+import toolCollection from "@/component/toolCollection";
 import svgIcon from "@/unit/svgIcon";
 import { ref } from "vue";
 export default {
   components: {
-    baseLayer,
     layerCollection,
+    modeCollection,
     svgIcon,
-    toolBar
+    toolCollection
   },
   setup(props, context) {
     //底图切换
-    const isBaseMapClick = ref(false);
+    const ifLayerCollectionClick = ref(false);
     /**
      * 底图点击事件
      */
-    let baseMapTag = () => {
-      isBaseMapClick.value = !isBaseMapClick.value;
+    let layerCollectionTag = () => {
+      ifLayerCollectionClick.value = !ifLayerCollectionClick.value;
     };
-    let changeBaseLayer = (value) => {
-       isBaseMapClick.value = value;
+    let changeLayerCollection = (value) => {
+       ifLayerCollectionClick.value = value;
     };
     /**
      * 图层显示隐藏事件监听
      */
-    const isLayerCollectionClick = ref(false)
-    let layerCollectionTag = ()=>{
-      isLayerCollectionClick.value = !isLayerCollectionClick.value;
+    const ifModeCollectionClick = ref(false)
+    let modeCollectionTag = ()=>{
+      ifModeCollectionClick.value = !ifModeCollectionClick.value;
     }
-    let changeLayerCollection = (value) => {
-      isLayerCollectionClick.value = value;
+    let changeModeCollection = (value) => {
+      ifModeCollectionClick.value = value;
     };
     return {
-      isBaseMapClick,
-      baseMapTag,
-      changeBaseLayer,
-      isLayerCollectionClick,
+      ifLayerCollectionClick,
       layerCollectionTag,
-      changeLayerCollection
+      changeLayerCollection,
+      ifModeCollectionClick,
+      modeCollectionTag,
+      changeModeCollection
     };
   },
 };

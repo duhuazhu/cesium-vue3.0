@@ -4,7 +4,7 @@
  * Date: 2022/5/20
  */
 
-import {baseLayer} from "@/component/baseLayer/config";
+import {baseLayer} from "@/component/layerCollection/config";
 import {
     WebMapTileServiceImageryProvider,
     UrlTemplateImageryProvider,
@@ -12,16 +12,16 @@ import {
     BingMapsImageryProvider,
     BingMapsStyle,
 } from "cesium";
-import BaiduImageryProvider from "@/component/baseLayer/BaiduImageryProvider";
+import BaiduImageryProvider from "@/component/layerCollection/BaiduImageryProvider";
 /**
  *
  * @param id 传入唯一标识
- * @param Viewer 传入Viewer
+ * @param viewer 传入Viewer
  */
-export const add = (id, Viewer) =>{
+export const add = (id, viewer) =>{
     let LayerGroups;
     //移除所有图层
-    remove(Viewer);
+    remove(viewer);
     //通过id返回查询layer
     if(id){
         LayerGroups = inquireMapId(id);
@@ -29,14 +29,14 @@ export const add = (id, Viewer) =>{
         // 默认查询
         LayerGroups =  inquireMapDefaultShow();
     }
-    addPivotal(LayerGroups,Viewer);
+    addPivotal(LayerGroups,viewer);
 };
 /**
  *
  * @param LayerGroups  传入图层组
- * @param Viewer     传入Viewer 对象
+ * @param viewer     传入Viewer 对象
  */
-export const addPivotal = (LayerGroups, Viewer)=>{
+export const addPivotal = (LayerGroups, viewer)=>{
     let imageryProvider;
     // 判断layer 是否还要子集
     if (LayerGroups.layers && LayerGroups.layers.length >= 1) {
@@ -45,12 +45,11 @@ export const addPivotal = (LayerGroups, Viewer)=>{
                 //天地图
                 case "tdt":
                     let url = LayerGroups.url + item.layer + "/" + item.request + LayerGroups.token;
-                    console.log(url);
                     imageryProvider = new WebMapTileServiceImageryProvider({
                         url,
                         ...item.option,
                     });
-                    Viewer.imageryLayers.addImageryProvider(imageryProvider);
+                    viewer.imageryLayers.addImageryProvider(imageryProvider);
                     break;
                 case "google":
                 case  "OSM":
@@ -59,14 +58,14 @@ export const addPivotal = (LayerGroups, Viewer)=>{
                     imageryProvider = new UrlTemplateImageryProvider({
                         ...item.option,
                     });
-                    Viewer.imageryLayers.addImageryProvider(imageryProvider);
+                    viewer.imageryLayers.addImageryProvider(imageryProvider);
                     break;
                 case "baidu":
                     imageryProvider = new BaiduImageryProvider({
                         ...item.option,
                     });
                     imageryProvider.hasAlphaChannel = true;
-                    Viewer.imageryLayers.addImageryProvider(imageryProvider);
+                    viewer.imageryLayers.addImageryProvider(imageryProvider);
                     break;
                 case "Tencent":
                     imageryProvider = new UrlTemplateImageryProvider({
@@ -80,26 +79,26 @@ export const addPivotal = (LayerGroups, Viewer)=>{
                             },
                         },
                     });
-                    Viewer.imageryLayers.addImageryProvider(imageryProvider);
+                    viewer.imageryLayers.addImageryProvider(imageryProvider);
                     break;
                 case "ArcGisMap":
                     imageryProvider = new ArcGisMapServerImageryProvider({
                         ...item.option,
                     });
-                    Viewer.imageryLayers.addImageryProvider(imageryProvider);
+                    viewer.imageryLayers.addImageryProvider(imageryProvider);
                     break;
                 case "BingMapsImagery":
                     imageryProvider = new BingMapsImageryProvider({
                         ...item.option,
                         mapStyle: BingMapsStyle.AERIAL,
                     });
-                    Viewer.imageryLayers.addImageryProvider(imageryProvider);
+                    viewer.imageryLayers.addImageryProvider(imageryProvider);
                     break;
                 case "painting":
                     imageryProvider = new UrlTemplateImageryProvider({
                         ...item.option,
                     });
-                    let imagery = Viewer.imageryLayers.addImageryProvider(imageryProvider);
+                    let imagery = viewer.imageryLayers.addImageryProvider(imageryProvider);
                     for (const at in item.colourScheme) {
                         imagery[at] = item.colourScheme[at];
                     }
@@ -111,11 +110,11 @@ export const addPivotal = (LayerGroups, Viewer)=>{
 }
 /**
  *
- * @param Viewer 添加之前移除图层
+ * @param viewer 添加之前移除图层
  */
-export const remove = (Viewer)=>{
-    Viewer.imageryLayers._layers.forEach((item) =>
-        Viewer.imageryLayers.remove(item)
+export const remove = (viewer)=>{
+    viewer.imageryLayers._layers.forEach((item) =>
+        viewer.imageryLayers.remove(item)
     );
 }
 /**

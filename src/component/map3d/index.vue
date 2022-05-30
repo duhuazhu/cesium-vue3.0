@@ -5,14 +5,14 @@
 <script>
 import {inject, onMounted,getCurrentInstance} from 'vue'
 import CesiumViewer from "@/component/map3d/initMap"
-let Viewer = new CesiumViewer();
+let viewer = new CesiumViewer();
 export default {
   name: "map3d",
   setup(){
     onMounted(() => {
-      Viewer.init("cesiumContainer");
+      viewer.init("cesiumContainer");
       const { appContext} = getCurrentInstance();
-      appContext.config.globalProperties.Viewer = Viewer.view;
+      appContext.config.globalProperties.viewer = viewer.view;
     })
   }
 }

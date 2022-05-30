@@ -1,6 +1,6 @@
 <template>
   <div class="bubbleStyle tree-container">
-    <el-dialog v-model="props.isLayerCollectionClick" title="图层" @close="closeDialog">
+    <el-dialog v-model="props.ifModeCollectionClick" title="图层" @close="closeDialog">
       <el-tree
           :data="config.layers"
           show-checkbox
@@ -22,10 +22,10 @@ import svgIcon from "@/unit/svgIcon";
 import {getCurrentInstance,onMounted} from "vue";
 import {add} from "@/component/modeCollection/modeCollectionFun";
 
-let Viewer;
+let viewer;
 export default {
   props: {
-    isLayerCollectionClick: {
+    ifModeCollectionClick: {
       type: Boolean,
     },
   },
@@ -36,11 +36,12 @@ export default {
     //初始化注册全局viewer对象
     onMounted(()=>{
       const { appContext } = getCurrentInstance();
-      Viewer = appContext.config.globalProperties.Viewer;
+      viewer = appContext.config.globalProperties.viewer;
     })
     let closeDialog = () => {
-      context.emit("isLayerCollectionClick", !props.isLayerCollectionClick);
+      context.emit("ifModeCollectionClick", !props.ifModeCollectionClick);
     };
+    //配置选项
     const defaultProps = {
       children: 'children',
       label: 'label',
@@ -62,9 +63,8 @@ export default {
         ]);
       }
     }
-    function checkChange(a,b) {
-      add();
-      console.log(a, b);
+    function checkChange(node,visible) {
+        if(node.url) add(node,visible,viewer);
     }
     return{
       props,

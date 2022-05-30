@@ -1,6 +1,6 @@
 <template>
   <div class="bubbleStyle">
-    <el-dialog v-model="props.isBaseMapClick" title="底图" @close="closeDialog">
+    <el-dialog v-model="props.ifLayerCollectionClick" title="底图" @close="closeDialog">
       <div class="baseLayerModules">
         <div
           v-for="(o, index) in baseLayer"
@@ -26,21 +26,21 @@
 
 <script>
 import {onMounted, getCurrentInstance, ref} from "vue";
-import {baseLayer} from "@/component/baseLayer/config";
-import {add} from "@/component/baseLayer/baseLayerFun";
-let Viewer;
+import {baseLayer} from "@/component/layerCollection/config";
+import {add} from "@/component/layerCollection/layerCollectionFun";
+let viewer;
 
 export default {
   props: {
     type: Boolean,
-    isBaseMapClick: {
+    ifLayerCollectionClick: {
     },
   },
   setup(props, context) {
     //初始化注册全局viewer对象
     onMounted(()=>{
       const { appContext } = getCurrentInstance();
-      Viewer = appContext.config.globalProperties.Viewer;
+      viewer = appContext.config.globalProperties.viewer;
     })
     const { appContext } = getCurrentInstance();
     let activeVar  = ref(0);
@@ -48,7 +48,7 @@ export default {
      * 遮罩层事件触发
      */
     let closeDialog = () => {
-      context.emit("isBaseMapClick", !props.isBaseMapClick);
+      context.emit("ifLayerCollectionClick", !props.ifLayerCollectionClick);
     };
     /**
      *
@@ -57,7 +57,7 @@ export default {
      */
     let addBaseLayer = (id,index)=>{
       activeVar.value = index;
-      add(id,Viewer);
+      add(id,viewer);
     }
     return {
       props,
@@ -72,5 +72,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "~@/component/baseLayer/baseLayer.scss";
+@import "~@/component/layerCollection/layerCollection.scss";
 </style>

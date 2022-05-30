@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "22381611",
+      "name": "tin地形",
+      "font_class": "tindixing",
+      "unicode": "edbd",
+      "unicode_decimal": 60861
+    },
+    {
       "icon_id": "11940457",
       "name": "图层",
       "font_class": "tuceng",
@@ -18,27 +25,6 @@
       "font_class": "wenjianjia",
       "unicode": "e673",
       "unicode_decimal": 58995
-    },
-    {
-      "icon_id": "16388840",
-      "name": "文件夹",
-      "font_class": "wenjianjia1",
-      "unicode": "e67e",
-      "unicode_decimal": 59006
-    },
-    {
-      "icon_id": "18538446",
-      "name": "连接",
-      "font_class": "lianjie",
-      "unicode": "efb3",
-      "unicode_decimal": 61363
-    },
-    {
-      "icon_id": "27765157",
-      "name": "文件夹",
-      "font_class": "wenjianjia2",
-      "unicode": "e70e",
-      "unicode_decimal": 59150
     },
     {
       "icon_id": "774372",

@@ -6,7 +6,7 @@
 import 'cesium/Build/Cesium/Widgets/widgets.css'
 import { Viewer,createWorldTerrain,Ion} from 'cesium'
 import {cesium_ion} from "@/config";
-import {add} from "@/component/baseLayer/baseLayerFun";
+import {add} from "@/component/layerCollection/layerCollectionFun";
 
 class CesiumViewer{
     constructor(){

@@ -3,26 +3,26 @@
  * Author: duhuazhu
  * Date: 2022/5/16
  */
-import tdt_img from '@/assets/images/baseLayer/tdt_img.png';
-import tdt_vec from '@/assets/images/baseLayer/tdt_vec.png';
-import gaode_img from '@/assets/images/baseLayer/gaode_img.png';
-import gaode_vec from '@/assets/images/baseLayer/gaode_vec.png';
-import bd_img from '@/assets/images/baseLayer/bd-img.png';
-import bd_vec from '@/assets/images/baseLayer/bd-vec.png';
-import tencent_img from '@/assets/images/baseLayer/tencent_img.png';
-import tencent_vec from '@/assets/images/baseLayer/tencent_vec.png';
-import esriWorldImagery from '@/assets/images/baseLayer/esriWorldImagery.png';
-import bingAerial from '@/assets/images/baseLayer/bingAerial.png';
-import osm from '@/assets/images/baseLayer/osm.png';
-import osm_dark from '@/assets/images/baseLayer/osm_dark.png';
-import gaode_paint from '@/assets/images/baseLayer/painting.png';
-import bd_drak from '@/assets/images/baseLayer/bd-c-dark.png';
-import geoq_blue from '@/assets/images/baseLayer/geoq_blue.png';
-import geoq_gray from '@/assets/images/baseLayer/geoq_gray.png';
-import geoq_water from '@/assets/images/baseLayer/geoq_water.png';
-import geoq_colours from '@/assets/images/baseLayer/geoq_colours.png';
-import geoq_eng from '@/assets/images/baseLayer/geoq_eng.png';
-import google_img from '@/assets/images/baseLayer/google_img.png';
+import tdt_img from '@/assets/images/layerCollectionImg/tdt_img.png';
+import tdt_vec from '@/assets/images/layerCollectionImg/tdt_vec.png';
+import gaode_img from '@/assets/images/layerCollectionImg/gaode_img.png';
+import gaode_vec from '@/assets/images/layerCollectionImg/gaode_vec.png';
+import bd_img from '@/assets/images/layerCollectionImg/bd-img.png';
+import bd_vec from '@/assets/images/layerCollectionImg/bd-vec.png';
+import tencent_img from '@/assets/images/layerCollectionImg/tencent_img.png';
+import tencent_vec from '@/assets/images/layerCollectionImg/tencent_vec.png';
+import esriWorldImagery from '@/assets/images/layerCollectionImg/esriWorldImagery.png';
+import bingAerial from '@/assets/images/layerCollectionImg/bingAerial.png';
+import osm from '@/assets/images/layerCollectionImg/osm.png';
+import osm_dark from '@/assets/images/layerCollectionImg/osm_dark.png';
+import gaode_paint from '@/assets/images/layerCollectionImg/painting.png';
+import bd_drak from '@/assets/images/layerCollectionImg/bd-c-dark.png';
+import geoq_blue from '@/assets/images/layerCollectionImg/geoq_blue.png';
+import geoq_gray from '@/assets/images/layerCollectionImg/geoq_gray.png';
+import geoq_water from '@/assets/images/layerCollectionImg/geoq_water.png';
+import geoq_colours from '@/assets/images/layerCollectionImg/geoq_colours.png';
+import geoq_eng from '@/assets/images/layerCollectionImg/geoq_eng.png';
+import google_img from '@/assets/images/layerCollectionImg/google_img.png';
 import {tdt_token} from "@/config";
 import { nanoid } from 'nanoid'
 export const baseLayer= [
