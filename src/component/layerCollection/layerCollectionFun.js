@@ -4,7 +4,7 @@
  * Date: 2022/5/20
  */
 
-import {baseLayer} from "@/component/layerCollection/config";
+import {baseLayers} from "@/component/layerCollection/config";
 import {
     WebMapTileServiceImageryProvider,
     UrlTemplateImageryProvider,
@@ -123,7 +123,7 @@ export const remove = (viewer)=>{
  * @returns {*}  返回查询到整个layer对象
  */
 export const inquireMapId = (id)=>{
-    return baseLayer.find((item) => {
+    return baseLayers.find((item) => {
         item.show = false;
         return item.id === id
     });
@@ -133,7 +133,7 @@ export const inquireMapId = (id)=>{
  * @returns {*} 返回属性show为true的图层对象
  */
 export const inquireMapDefaultShow = ()=>{
-    return baseLayer.find((item)=>{
+    return baseLayers.find((item)=>{
         return item.show =true;
     })
 }

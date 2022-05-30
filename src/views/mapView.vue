@@ -14,7 +14,7 @@
           </el-button>
         </el-col>
         <el-col :span="3">
-          <el-button @click="terrainProviderCollectionTag">
+          <el-button @click="terrainCollectionTag">
             <svgIcon name="icon-tindixing"></svgIcon>
             <span>地形</span>
           </el-button>
@@ -27,20 +27,24 @@
         </el-col>
         <el-col :span="6">
           <!--工具-->
-          <toolBar></toolBar>
+          <toolCollection></toolCollection>
         </el-col>
       </el-row>
     </div>
   </div>
+
   <!--底图 -->
   <layerCollection @ifLayerCollectionClick="changeLayerCollection" :ifLayerCollectionClick="ifLayerCollectionClick" />
   <!-- 倾斜-->
   <modeCollection @ifModeCollectionClick="changeModeCollection" :ifModeCollectionClick="ifModeCollectionClick"/>
+  <!--  地形-->
+  <terrainProviderCollection @ifTerrainCollectionClick="changeTerrainCollection" :ifTerrainCollectionClick="ifTerrainCollectionClick"/>
 </template>
 
 <script>
 import layerCollection from "@/component/layerCollection";
 import modeCollection from "@/component/modeCollection";
+import terrainProviderCollection from "@/component/terrainProviderCollection";
 import toolCollection from "@/component/toolCollection";
 import svgIcon from "@/unit/svgIcon";
 import { ref } from "vue";
@@ -49,7 +53,8 @@ export default {
     layerCollection,
     modeCollection,
     svgIcon,
-    toolCollection
+    toolCollection,
+    terrainProviderCollection
   },
   setup(props, context) {
     //底图切换
@@ -64,7 +69,7 @@ export default {
        ifLayerCollectionClick.value = value;
     };
     /**
-     * 图层显示隐藏事件监听
+     * 倾斜显示隐藏事件监听
      */
     const ifModeCollectionClick = ref(false)
     let modeCollectionTag = ()=>{
@@ -73,13 +78,29 @@ export default {
     let changeModeCollection = (value) => {
       ifModeCollectionClick.value = value;
     };
+    /**
+     * 地形显示隐藏事件监听
+     */
+      const ifTerrainCollectionClick = ref(false)
+      let terrainCollectionTag = ()=>{
+        ifTerrainCollectionClick.value = !ifTerrainCollectionClick.value;
+      }
+      let changeTerrainCollection = (value) => {
+        ifTerrainCollectionClick.value = value;
+      };
+
+
+    // changeTerrainCollection
     return {
       ifLayerCollectionClick,
       layerCollectionTag,
       changeLayerCollection,
       ifModeCollectionClick,
       modeCollectionTag,
-      changeModeCollection
+      changeModeCollection,
+      terrainCollectionTag,
+      changeTerrainCollection,
+      ifTerrainCollectionClick
     };
   },
 };

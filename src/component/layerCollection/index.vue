@@ -3,7 +3,7 @@
     <el-dialog v-model="props.ifLayerCollectionClick" title="底图" @close="closeDialog">
       <div class="baseLayerModules">
         <div
-          v-for="(o, index) in baseLayer"
+          v-for="(o, index) in baseLayers"
           :key="o"
           class="block"
           >
@@ -26,7 +26,7 @@
 
 <script>
 import {onMounted, getCurrentInstance, ref} from "vue";
-import {baseLayer} from "@/component/layerCollection/config";
+import {baseLayers} from "@/component/layerCollection/config";
 import {add} from "@/component/layerCollection/layerCollectionFun";
 let viewer;
 
@@ -61,7 +61,7 @@ export default {
     }
     return {
       props,
-      baseLayer,
+      baseLayers,
       closeDialog,
       addBaseLayer,
       add,

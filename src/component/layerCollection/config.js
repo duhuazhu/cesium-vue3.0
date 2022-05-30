@@ -25,7 +25,7 @@ import geoq_eng from '@/assets/images/layerCollectionImg/geoq_eng.png';
 import google_img from '@/assets/images/layerCollectionImg/google_img.png';
 import {tdt_token} from "@/config";
 import { nanoid } from 'nanoid'
-export const baseLayer= [
+export const baseLayers= [
        /*         {
                     "id": 10,
                     "name": "地图底图",
